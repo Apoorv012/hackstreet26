@@ -189,7 +189,7 @@ function HomeParallax() {
           <MistDivider />
           {/* Timeline uses its own section wrapper + receives items + ref via standard props */}
           <section ref={page4Ref} className="hs-section hs-section--auto">
-            <animated.img src="/Timeline_bg.jpg" alt="Timeline Background" className="hs-parallax-img" style={{ zIndex: 1, transform: spring4.shift.to((s) => `translateY(${s}px)`) }} />
+            <animated.img src="/Timeline_bg2.jpg" alt="Timeline Background" className="hs-parallax-img" style={{ zIndex: 1, transform: spring4.shift.to((s) => `translateY(${s}px)`) }} />
             <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent, rgba(212,175,55,0.05))", zIndex: 10, pointerEvents: "none" }} />
             <div style={{ position: "relative", zIndex: 30, display: "flex", justifyContent: "center", alignItems: "flex-start", paddingTop: "5vh", paddingBottom: "6vh", minHeight: "100vh", overflow: "auto" }}>
               <Timeline items={timelineData} />

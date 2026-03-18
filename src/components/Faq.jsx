@@ -40,7 +40,7 @@ export default function FAQ({ sectionRef }) {
       <section ref={sectionRef} className="faq-section">
         <div className="faq-bg" />
         <div className="faq-title-wrap">
-          <h2 className="faq-title">Frequently Asked Questions</h2>
+        <img src="/FAQ.png" />
           <div className="faq-title-rule" />
         </div>
         <div className="faq-lanterns">

@@ -22,9 +22,9 @@ export default function PrizesSection({ sectionRef }) {
               </div>
               <div className="w-full lg:w-3/5 flex flex-col gap-4 pb-8">
                 {[
-                  { rank: "WINNER", desc: "The Grand Prize will be given to a project that outstands all other submissions.", amount: "₹50,000", color: "from-yellow-500/40", textColor: "text-yellow-500", glow: "0_0_25px_rgba(234,179,8,1)" },
-                  { rank: "1ST RUNNER UP", desc: "1st Runner-up prize will be given to the second best project of the hackathon.", amount: "₹30,000", color: "from-slate-400/30", textColor: "text-slate-300", glow: "0_0_25px_rgba(203,213,225,0.9)" },
-                  { rank: "2ND RUNNER UP", desc: "2nd Runner-up project of the hackathon will win some awesome prizes.", amount: "₹20,000", color: "from-orange-800/30", textColor: "text-orange-700", glow: "0_0_25px_rgba(194,65,12,0.9)" },
+                  { rank: "WINNER", desc: "The Grand Prize will be given to a project that outstands all other submissions.", amount: "₹5500", color: "from-yellow-500/40", textColor: "text-yellow-500", glow: "0_0_25px_rgba(234,179,8,1)" },
+                  { rank: "1ST RUNNER UP", desc: "1st Runner-up prize will be given to the second best project of the hackathon.", amount: "₹4500", color: "from-slate-400/30", textColor: "text-slate-300", glow: "0_0_25px_rgba(203,213,225,0.9)" },
+                  { rank: "2ND RUNNER UP", desc: "2nd Runner-up project of the hackathon will win some awesome prizes.", amount: "₹3000", color: "from-orange-800/30", textColor: "text-orange-700", glow: "0_0_25px_rgba(194,65,12,0.9)" },
                 ].map((prize, i) => (
                   <div key={i} className="relative group transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.04]" style={{ clipPath: "polygon(3% 0%, 100% 0%, 97% 100%, 0% 100%)" }}>
                     <div className={`bg-gradient-to-r ${prize.color} to-transparent p-[2px] transition-all duration-500`}>
