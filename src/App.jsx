@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, lazy, Suspense } from 'react';
 import Lenis from 'lenis';
-import Landing from './Landing';
-import Petals from './components/Petals';
 import VaultPreloader from './components/Vaultpreloader';
-import CursorSparkle from './components/CursorSparkle';
+
+const Landing = lazy(() => import('./Landing'));
+const Petals = lazy(() => import('./components/Petals'));
+const CursorSparkle = lazy(() => import('./components/CursorSparkle'));
 
 function App() {
   const [preloaderDone, setPreloaderDone] = useState(false);
@@ -29,21 +30,28 @@ function App() {
   return (
     <div className="w-full relative">
       {/* Custom cursor — always on top */}
-      <CursorSparkle />
+      <Suspense fallback={null}>
+        <CursorSparkle />
+      </Suspense>
 
       {/* Vault preloader — sits on top of everything until dismissed */}
       {!preloaderDone && (
         <VaultPreloader onComplete={() => setPreloaderDone(true)} />
       )}
 
-      {/* Layer 1: Particles */}
-      <Petals />
+      {/* Rest of site only loads after preloader done */}
+      {preloaderDone && (
+        <Suspense fallback={null}>
+          {/* Layer 1: Particles */}
+          <Petals />
 
-      {/* Layer 2: Tint */}
-      <div className="absolute inset-0 bg-black/30 pointer-events-none z-[15]" />
+          {/* Layer 2: Tint */}
+          <div className="absolute inset-0 bg-black/30 pointer-events-none z-[15]" />
 
-      {/* Layer 3: The Main Parallax Page */}
-      <Landing />
+          {/* Layer 3: The Main Parallax Page */}
+          <Landing />
+        </Suspense>
+      )}
     </div>
   );
 }

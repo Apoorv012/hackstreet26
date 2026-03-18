@@ -8,5 +8,16 @@ export default defineConfig({
     allowedHosts: [
       "nonproportionate-wisdomless-krysta.ngrok-free.dev"
     ]
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'gsap': ['gsap'],
+          'particles': ['@tsparticles/react', 'tsparticles'],
+        }
+      }
+    }
   }
 })

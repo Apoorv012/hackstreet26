@@ -6,19 +6,19 @@ const timelineData = [
     icon: "📝"
   },
   {
-    date: "1st March, 12:00 PM",
+    date: "4th April, 12:00 PM",
     title: "Hacking Period Starts",
     description: "Begin your innovative journey",
     icon: "🚀"
   },
   {
-    date: "1st March, 9:00 PM",
+    date: "4th April, 9:00 PM",
     title: "Mid Evaluation",
     description: "Present your progress to the judges",
     icon: "⚡"
   },
   {
-    date: "2nd March, 12:00 PM",
+    date: "5th April, 12:00 PM",
     title: "Hacking Period Ends",
     description: "Time to wrap up your project",
     icon: "⏰"
