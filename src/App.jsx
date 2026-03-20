@@ -13,8 +13,12 @@ function App() {
   useEffect(() => {
     if (!preloaderDone) {
       document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
     } else {
       document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
     }
   }, [preloaderDone]);
 
@@ -38,27 +42,22 @@ function App() {
 
   return (
     <div className="w-full relative">
-      {/* Custom cursor — always on top */}
       <Suspense fallback={null}>
         <CursorSparkle />
       </Suspense>
 
-      {/* Vault preloader — sits on top of everything until dismissed */}
       {!preloaderDone && (
         <VaultPreloader onComplete={() => setPreloaderDone(true)} />
       )}
 
-      {/* Particles — only after preloader */}
       {preloaderDone && (
         <Suspense fallback={null}>
           <Petals />
         </Suspense>
       )}
 
-      {/* Tint */}
       <div className="absolute inset-0 bg-black/30 pointer-events-none z-[15]" />
 
-      {/* Landing — always mounted, loads in background during preloader */}
       <Landing />
     </div>
   );
