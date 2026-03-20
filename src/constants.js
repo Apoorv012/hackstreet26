@@ -1,6 +1,6 @@
 const timelineData = [
   {
-    date: "Until 28th Feb",
+    date: "Till 4th April, 12:00 AM",
     title: "Registration",
     description: "Register your team for the hackathon",
     icon: "📝"
