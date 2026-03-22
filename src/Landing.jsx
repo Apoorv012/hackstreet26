@@ -11,12 +11,51 @@ const PrizesSection = lazy(() => import("./components/PrizesSection"));
 const Footer        = lazy(() => import("./components/Footer"));
 
 const timelineData = [
+<<<<<<< HEAD
   { date: "Till 4th April, 12:00 AM", title: "Registration", description: "Register your team for the hackathon", icon: "📝" },
   { date: "4th April, 12:00 PM", title: "Hacking Period Starts", description: "Begin your innovative journey", icon: "🚀" },
   { date: "4th April, 9:00 PM", title: "Mid Evaluation", description: "Present your progress to the judges", icon: "⚡" },
   { date: "5th April, 12:00 PM", title: "Hacking Period Ends", description: "Time to wrap up your project", icon: "⏰" },
   { date: "5th April, 12:00 PM - 12:30 PM", title: "Project Submission", description: "Submit your final project", icon: "📦" },
   { date: "5th April, 1:00 PM onwards", title: "Final Evaluation", description: "Present your complete project to the judges", icon: "🏆" },
+=======
+  {
+    date: "Till 4th April, 12:00 AM",
+    title: "Registration",
+    description: "Register your team for the hackathon",
+    icon: "📝"
+  },
+  {
+    date: "4th April, 12:00 PM",
+    title: "Hacking Period Starts",
+    description: "Begin your innovative journey",
+    icon: "🚀"
+  },
+  {
+    date: "4th April, 9:00 PM",
+    title: "Mid Evaluation",
+    description: "Present your progress to the judges",
+    icon: "⚡"
+  },
+  {
+    date: "5th April, 12:00 PM",
+    title: "Hacking Period Ends",
+    description: "Time to wrap up your project",
+    icon: "⏰"
+  },
+  {
+    date: "25th April, 12:00 PM - 12:30 PM",
+    title: "Project Submission",
+    description: "Submit your final project",
+    icon: "📦"
+  },
+  {
+    date: "5th April, 1:00 PM onwards",
+    title: "Final Evaluation",
+    description: "Present your complete project to the judges",
+    icon: "🏆"
+  },
+>>>>>>> 054ca6a2900a2ffab4fbc5eff02c96950d153680
 ];
 
 const KANJI = ["侍", "武", "道", "剣", "力", "戦", "勇", "魂", "刃", "忍"];
@@ -139,12 +178,15 @@ function HomeParallax() {
         @keyframes prizeGlow { 0%, 100% { text-shadow: 0 0 10px rgba(255,255,255,0.5); } 50% { text-shadow: 0 0 25px rgba(255,255,255,0.9), 0 0 50px rgba(255,100,100,0.4); } }
         @keyframes shine { 100% { left: 125%; } }
         @keyframes glassReflection { 0% { transform: translateX(-150%) rotate(25deg); opacity: 0; } 20% { opacity: 1; } 100% { transform: translateX(150%) rotate(25deg); opacity: 0; } }
+<<<<<<< HEAD
         @keyframes pulseRed {
           0% { box-shadow: 0 0 12px rgba(255,0,0,0.4), inset 0 0 10px rgba(255,0,0,0.2); }
           50% { box-shadow: 0 0 25px rgba(255,0,0,0.9), inset 0 0 15px rgba(255,0,0,0.5); }
           100% { box-shadow: 0 0 12px rgba(255,0,0,0.4), inset 0 0 10px rgba(255,0,0,0.2); }
         }
         .btn-glow { animation: pulseRed 2s infinite ease-in-out; }
+=======
+>>>>>>> 054ca6a2900a2ffab4fbc5eff02c96950d153680
         .glassBox { position: relative; overflow: hidden; }
         .glassBox::after { content: ""; position: absolute; top: -50%; left: 0; width: 150%; height: 200%; background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.03) 75%, transparent 100%); filter: blur(20px); pointer-events: none; transform: translateX(-150%) rotate(25deg); }
         .glassBox:hover::after { animation: glassReflection 0.6s ease-in-out forwards; }
