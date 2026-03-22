@@ -161,7 +161,7 @@ function HomeParallax() {
 
           {/* Register Now Button */}
           <a
-            href="https://unstop.com/your-link"
+            href="https://unstop.com/hackathons/hackstreet-40-xenith26-ieee-student-branch-jiit-noida-1663464"
             target="_blank"
             rel="noopener noreferrer"
             className="glassBox btn-glow"
