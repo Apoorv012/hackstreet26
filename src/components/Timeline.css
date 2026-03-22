@@ -1,0 +1,345 @@
+
+/* ========================================
+   Timeline Component Styles
+   Glass morphism design matching existing system
+   ======================================== */
+
+/* CSS Variables for easy theming */
+:root {
+  --timeline-gold: #d4af37;
+  --timeline-gold-glow: rgba(212, 175, 55, 0.3);
+  --timeline-text-primary: #fff;
+  --timeline-text-muted: #aaa;
+  --timeline-red: #ff003c;
+  --timeline-glass-bg: rgba(0, 0, 0, 0.5);
+  --timeline-glass-border: rgba(212, 175, 55, 0.3);
+  --timeline-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  --timeline-text-glow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+/* Container */
+.timeline-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Header */
+.timeline-header {
+  text-align: center;
+  margin-bottom: 60px;
+  z-index: 10;
+}
+
+.timeline-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--timeline-text-primary);
+  margin: 0;
+  text-shadow: var(--timeline-text-glow);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.timeline-title-en {
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.timeline-title-jp {
+  font-family: 'Yu Mincho', serif;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: var(--timeline-gold);
+  font-weight: 400;
+  letter-spacing: 4px;
+}
+
+/* Timeline Wrapper */
+.timeline-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Center vertical line */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--timeline-gold) 10%,
+    var(--timeline-gold) 90%,
+    transparent
+  );
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Timeline List */
+.timeline-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Timeline Item */
+.timeline-item {
+  position: relative;
+  margin-bottom: 80px;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Visible state (triggered by IntersectionObserver) */
+.timeline-item-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Left-aligned items */
+.timeline-item-left {
+  justify-content: flex-start;
+  padding-right: 50%;
+  padding-left: 0;
+}
+
+.timeline-item-left .timeline-card {
+  transform: translateX(-20px);
+}
+
+.timeline-item-left.timeline-item-visible .timeline-card {
+  transform: translateX(0);
+}
+
+/* Right-aligned items */
+.timeline-item-right {
+  justify-content: flex-end;
+  padding-left: 50%;
+  padding-right: 0;
+}
+
+.timeline-item-right .timeline-marker {
+  order: -1;
+}
+
+.timeline-item-right .timeline-card {
+  transform: translateX(20px);
+}
+
+.timeline-item-right.timeline-item-visible .timeline-card {
+  transform: translateX(0);
+}
+
+/* Timeline Marker (circle on line) */
+.timeline-marker {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  background: var(--timeline-glass-bg);
+  backdrop-filter: blur(5px);
+  border: 2px solid var(--timeline-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  box-shadow: 0 0 20px var(--timeline-gold-glow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item-visible .timeline-marker {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.timeline-marker:hover {
+  transform: translateX(-50%) scale(1.1);
+  box-shadow: 0 0 30px var(--timeline-gold);
+}
+
+.timeline-icon {
+  font-size: 1.8rem;
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.5));
+}
+
+/* Timeline Card (glass panel) */
+.timeline-card {
+  background: var(--timeline-glass-bg);
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--timeline-glass-border);
+  border-radius: 12px;
+  padding: 24px 28px;
+  box-shadow: var(--timeline-shadow);
+  transition: transform 0.6s ease, box-shadow 0.3s ease;
+  flex: 1;
+  max-width: 450px;
+}
+
+.timeline-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7),
+              0 0 20px var(--timeline-gold-glow);
+  border-color: var(--timeline-gold);
+}
+
+/* Card Content */
+.timeline-date {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  color: var(--timeline-gold);
+  font-weight: 600;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.timeline-event-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  color: var(--timeline-text-primary);
+  margin: 0 0 12px 0;
+  font-weight: 700;
+  text-shadow: var(--timeline-text-glow);
+  letter-spacing: 1px;
+}
+
+.timeline-description {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  color: var(--timeline-text-muted);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    box-shadow: 0 0 20px var(--timeline-gold-glow);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0 0 30px var(--timeline-gold);
+  }
+}
+
+/* ========================================
+   Responsive Design - Mobile First
+   ======================================== */
+
+/* Mobile: Stack all items on left */
+@media (max-width: 768px) {
+  .timeline-container {
+    padding: 60px 16px;
+  }
+
+  .timeline-header {
+    margin-bottom: 40px;
+  }
+
+  /* Move line to left side */
+  .timeline-line {
+    left: 30px;
+  }
+
+  /* All items aligned left */
+  .timeline-item,
+  .timeline-item-left,
+  .timeline-item-right {
+    justify-content: flex-start;
+    padding-left: 80px;
+    padding-right: 0;
+    margin-bottom: 60px;
+  }
+
+  .timeline-item-left .timeline-card,
+  .timeline-item-right .timeline-card {
+    transform: translateX(0);
+  }
+
+  /* Marker on left */
+  .timeline-marker {
+    left: 30px;
+  }
+
+  .timeline-item-right .timeline-marker {
+    order: 0;
+  }
+
+  /* Smaller cards on mobile */
+  .timeline-card {
+    max-width: 100%;
+    padding: 20px 24px;
+  }
+
+  .timeline-marker {
+    width: 50px;
+    height: 50px;
+  }
+
+  .timeline-icon {
+    font-size: 1.5rem;
+  }
+
+  .timeline-event-title {
+    font-size: 1.3rem;
+  }
+
+  .timeline-description {
+    font-size: 0.95rem;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .timeline-card {
+    max-width: 380px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1400px) {
+  .timeline-card {
+    max-width: 500px;
+  }
+}
+/* ===============================
+   TIMELINE TITLE IMAGE
+================================ */
+
+.timeline-title-wrapper {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.timeline-title-img {
+  width: clamp(260px, 100vw, 500px);
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
+  filter: none;
+}
+
+/* keep Japanese subtitle */
+.timeline-title-jp {
+  font-family: 'Yu Mincho', serif;
+  font-size: 1.2rem;
+  color: var(--timeline-gold);
+  letter-spacing: 4px;
+}

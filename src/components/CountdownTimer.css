@@ -1,0 +1,129 @@
+/* src/components/CountdownTimer.css */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&display=swap');
+
+.timer-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  z-index: 100;
+  margin-top: 10px;
+}
+
+/* THE HORIZONTAL GLASS BOX */
+.timer-glass-panel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 12px;
+
+  padding: 10px 35px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+
+  /* Prevents accidental text selection which causes the dark highlight box! */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.time-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Ensures perfect vertical alignment */
+}
+
+.number {
+  font-family: 'Cinzel', serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+  margin: 0;
+  padding: 0;
+}
+
+/* --- JAPANESE KANJI STYLING --- */
+.label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+  line-height: 1.2;
+}
+
+.kanji {
+  font-family: 'Yu Mincho', 'SimSun', 'Hiragino Mincho ProN', serif;
+  font-size: 1rem;
+  color: #d4af37;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+}
+
+.eng {
+  font-family: 'Cinzel', serif;
+  font-size: 0.5rem;
+  color: #aaa;
+  letter-spacing: 2px;
+  margin-top: 2px;
+}
+
+/* The Colon Separators */
+.separator {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  color: #d4af37;
+  margin-top: -25px;
+  opacity: 0.7;
+  line-height: 1;
+}
+
+/* Red Pulse */
+.number.red-pulse {
+  color: #ff003c;
+  background: transparent !important;
+  /* Forces the weird dark box to vanish */
+
+  /* Renamed animation to neonPulse to avoid Tailwind CSS conflicts */
+  animation: neonPulse 1s ease-in-out infinite alternate;
+}
+
+/* Smoother, layered glow to prevent the text-shadow from rendering as a solid block */
+@keyframes neonPulse {
+  from {
+    text-shadow: 0 0 5px rgba(255, 0, 60, 0.4),
+      0 0 10px rgba(255, 0, 60, 0.2);
+  }
+
+  to {
+    text-shadow: 0 0 10px rgba(255, 0, 60, 0.8),
+      0 0 25px rgba(255, 0, 60, 0.6);
+  }
+}
+
+@media (max-width: 768px) {
+  .timer-glass-panel {
+    padding: 8px 15px;
+    gap: 8px;
+  }
+
+  .number {
+    font-size: 1.5rem;
+  }
+
+  .separator {
+    font-size: 1.2rem;
+    margin-top: -10px;
+  }
+
+  .kanji {
+    font-size: 0.8rem;
+  }
+}
