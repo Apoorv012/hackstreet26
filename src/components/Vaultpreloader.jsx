@@ -5,7 +5,7 @@ import { gsap } from 'gsap';
 const vaultImg      = '/vault_full46.jpeg';
 const vaultImgPhone = '/preloader_phone.jpeg';
 const vaultLockImg  = '/vault-lock-1.png';
-const xenithLogo    = '/xenith_logo.png';
+const xenithLogo    = '/XENITH26.png';
 const lockClickSfx  = '/lock-click.mp3';
 const doorCreakSfx  = '/door-creak.wav';
 const logoWhooshSfx = '/logo-whoosh.mp3';
