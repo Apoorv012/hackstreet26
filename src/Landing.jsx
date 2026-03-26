@@ -188,14 +188,14 @@ function HomeParallax() {
             Register Now
           </a>
 
-          <animated.img src="/mountain.png" alt="Mountains" className="hs-parallax-img"
+          <animated.img src="/mountain.webp" alt="Mountains" className="hs-parallax-img"
             style={{ zIndex: 1, transform: to([heroSpring.mx, heroSpring.my], (mx, my) => `translate(${mx * -10 * pMult}px, ${my * -10 * pMult}px)`) }}
           />
           <animated.img src="/sun.png" alt="Sun"
             style={{ position: "absolute", top: "8%", left: "50%", width: "clamp(180px, 18vw, 280px)", zIndex: 5, transform: to([heroSpring.mx, heroSpring.my], (mx, my) => `translate(calc(-50% + ${mx * -18 * pMult}px), ${my * -18 * pMult}px)`) }}
           />
           {!isMobile && (
-            <animated.img src="/trees.png" alt="Trees" className="hs-parallax-img"
+            <animated.img src="/trees.webp" alt="Trees" className="hs-parallax-img"
               style={{ zIndex: 20, opacity: 0.85, transform: to([heroSpring.mx, heroSpring.my, spring1.shift], (mx, my, s) => `translate(${mx * 20 * pMult}px, calc(${my * 20 * pMult}px + ${s}px))`) }}
             />
           )}
@@ -205,7 +205,7 @@ function HomeParallax() {
             />
           )}
           <animated.div style={{ position: "absolute", inset: 0, zIndex: 50, display: "flex", justifyContent: "center", alignItems: "flex-start", paddingTop: "22vh", transform: to([heroSpring.mx, heroSpring.my], (mx, my) => `translate(${mx * -5 * pMult}px, ${my * -5 * pMult}px)`) }}>
-            <img src="/logo2.png" alt="HackStreet Logo" className="hs-hero-logo" style={{ width: "clamp(260px, 48vw, 580px)", filter: "invert(100%) sepia(100%) saturate(400%) hue-rotate(180deg) brightness(200%) contrast(100%) drop-shadow(0 0 3px rgba(0,255,255,0.8)) drop-shadow(0 0 20px rgba(0,100,255,0.5))" }} />
+            <img src="/logo2.webp" alt="HackStreet Logo" className="hs-hero-logo" style={{ width: "clamp(260px, 48vw, 580px)", filter: "invert(100%) sepia(100%) saturate(400%) hue-rotate(180deg) brightness(200%) contrast(100%) drop-shadow(0 0 3px rgba(0,255,255,0.8)) drop-shadow(0 0 20px rgba(0,100,255,0.5))" }} />
           </animated.div>
           <div style={{ position: "absolute", bottom: "clamp(60px,12vh,120px)", left: 0, right: 0, display: "flex", justifyContent: "center", zIndex: 55 }}>
             <div style={{ transform: "scale(0.9)", pointerEvents: "auto" }}><CountdownTimer /></div>
