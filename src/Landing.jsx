@@ -188,7 +188,9 @@ function HomeParallax() {
             Register Now
           </a>
 
+
           <animated.img src="/mountain.webp" alt="Mountains" className="hs-parallax-img"
+
             style={{ zIndex: 1, transform: to([heroSpring.mx, heroSpring.my], (mx, my) => `translate(${mx * -10 * pMult}px, ${my * -10 * pMult}px)`) }}
           />
           <animated.img src="/sun.png" alt="Sun"
@@ -196,6 +198,7 @@ function HomeParallax() {
           />
           {!isMobile && (
             <animated.img src="/trees.webp" alt="Trees" className="hs-parallax-img"
+
               style={{ zIndex: 20, opacity: 0.85, transform: to([heroSpring.mx, heroSpring.my, spring1.shift], (mx, my, s) => `translate(${mx * 20 * pMult}px, calc(${my * 20 * pMult}px + ${s}px))`) }}
             />
           )}
@@ -246,3 +249,4 @@ function HomeParallax() {
 }
 
 export default HomeParallax;
+
