@@ -3,7 +3,7 @@ import { useState } from "react";
 const faqs = [
   {
     q: "Who can participate in HackStreet?",
-    a: "HackStreet is open to all college students. You can participate individually or form a team of up to 3 members. Developers, designers, and innovators from all skill levels are welcome.",
+    a: "HackStreet is open to all college students. Participants must register in teams of 2 to 3 members (solo participation is not allowed). Developers, designers, and innovators from all skill levels are welcome.",
   },
   {
     q: "Is there any registration fee?",
